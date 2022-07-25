@@ -260,7 +260,7 @@ class Board:
         if cfg.options.Werror:
             errors = ['-Werror',
                       '-Werror=missing-declarations',
-                      '-Werror=float-equal',
+                      #'-Werror=float-equal',
                       '-Werror=undef',
                     ]
             env.CFLAGS += errors
@@ -413,7 +413,7 @@ class sitl(Board):
             cfg.define('UAVCAN_EXCEPTIONS', 0)
 
         env.CXXFLAGS += [
-            '-Werror=float-equal'
+            #'-Werror=float-equal'
         ]
 
         if not cfg.env.DEBUG:
@@ -513,14 +513,14 @@ class chibios(Board):
         env.CFLAGS += cfg.env.CPU_FLAGS + [
             '-Wno-cast-align',
             '-Wlogical-op',
-            '-Wframe-larger-than=1300',
+            '-Wframe-larger-than=8196',
             '-fsingle-precision-constant',
             '-Wno-attributes',
             '-fno-exceptions',
             '-Wall',
             '-Wextra',
             '-Wno-sign-compare',
-            '-Wfloat-equal',
+           # '-Wfloat-equal',
             '-Wpointer-arith',
             '-Wmissing-declarations',
             '-Wno-unused-parameter',
@@ -528,7 +528,7 @@ class chibios(Board):
             '-Wfatal-errors',
             '-Werror=uninitialized',
             '-Werror=init-self',
-            '-Wframe-larger-than=1024',
+            '-Wframe-larger-than=8196',
             '-Werror=unused-but-set-variable',
             '-Wno-missing-field-initializers',
             '-Wno-trigraphs',
@@ -555,7 +555,7 @@ class chibios(Board):
             env.CFLAGS += [
             '-Wno-error=double-promotion',
             '-Wno-error=missing-declarations',
-            '-Wno-error=float-equal',
+            #'-Wno-error=float-equal',
             '-Wno-error=undef',
             '-Wno-error=cpp',
             ]
